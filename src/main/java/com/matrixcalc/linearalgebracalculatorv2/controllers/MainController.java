@@ -20,8 +20,13 @@ public class MainController {
 
     private final ObjectMapper mapper;
 
+    @CrossOrigin
+    @GetMapping("/test")
+    public String test() {return "Test!!";}
+
+    @CrossOrigin
     @PostMapping("/add")
-    public ResponseEntity<Object> add(@RequestBody ObjectNode node) throws IOException {
+    public ResponseEntity<Object> add(@RequestBody ObjectNode node) {
         node.fieldNames().forEachRemaining(System.out::println);
         try {
             double[][] A = mapper.treeToValue(node.get("A"), double[][].class);
@@ -37,8 +42,9 @@ public class MainController {
         }
     }
 
+    @CrossOrigin
     @PostMapping("/subtract")
-    public ResponseEntity<Object> subtract(@RequestBody ObjectNode node) throws IOException {
+    public ResponseEntity<Object> subtract(@RequestBody ObjectNode node) {
         node.fieldNames().forEachRemaining(System.out::println);
         try {
             double[][] A = mapper.treeToValue(node.get("A"), double[][].class);
@@ -54,8 +60,9 @@ public class MainController {
         }
     }
 
+    @CrossOrigin
     @PostMapping("/multiply")
-    public ResponseEntity<Object> multiply(@RequestBody ObjectNode node) throws IOException {
+    public ResponseEntity<Object> multiply(@RequestBody ObjectNode node) {
         node.fieldNames().forEachRemaining(System.out::println);
         try {
             double[][] A = mapper.treeToValue(node.get("A"), double[][].class);
@@ -71,8 +78,9 @@ public class MainController {
         }
     }
 
+    @CrossOrigin
     @PostMapping("/rref")
-    public ResponseEntity<Object> rref(@RequestBody ObjectNode node) throws IOException {
+    public ResponseEntity<Object> rref(@RequestBody ObjectNode node) {
         node.fieldNames().forEachRemaining(System.out::println);
         try {
             double[][] A = mapper.treeToValue(node.get("A"), double[][].class);
